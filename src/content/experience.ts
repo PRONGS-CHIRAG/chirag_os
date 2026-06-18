@@ -1,0 +1,66 @@
+import type { ExperienceItem } from "@/lib/types";
+
+export const EXPERIENCE: ExperienceItem[] = [
+  {
+    id: "hilti",
+    title: "Hilti",
+    subtitle: "Working Student AI",
+    summary:
+      "Working on AI-related initiatives in an industrial context, combining applied AI, data, workflow thinking, and practical business use cases.",
+    organization: "Hilti",
+    role: "Working Student AI",
+    track: "engineering",
+    startDate: "needs-review",
+    endDate: "present",
+    featured: true,
+    verificationStatus: "needs-review",
+    visibility: "public",
+    tags: ["Industrial AI", "Applied AI", "Workflow Automation"],
+  },
+  {
+    id: "bosch-ebike",
+    title: "Bosch eBike Systems",
+    subtitle: "Applied ML and Data Science",
+    summary:
+      "Applied ML and data science work covering master's thesis, acoustic and vibration data analysis, explainable machine learning, and industrial-scale data pipeline development.",
+    organization: "Bosch eBike Systems",
+    role: "needs-review",
+    track: "engineering",
+    startDate: "needs-review",
+    endDate: "needs-review",
+    featured: true,
+    verificationStatus: "needs-review",
+    visibility: "public",
+    tags: ["Applied ML", "Explainable AI", "Industrial ML", "ETL Pipelines", "Signal Processing"],
+  },
+  {
+    id: "forwiss",
+    title: "FORWISS — University of Passau",
+    subtitle: "Research Assistant",
+    summary:
+      "Signal and data-processing research covering NetCDF and HDF5 formats, compression of wavelet-based signals, research software development, and publication contribution.",
+    organization: "FORWISS, University of Passau",
+    role: "Research Assistant",
+    track: "research",
+    startDate: "needs-review",
+    endDate: "needs-review",
+    featured: true,
+    verificationStatus: "needs-review",
+    visibility: "public",
+    tags: ["Research", "Signal Processing", "Wavelets", "Research Software"],
+  },
+  {
+    id: "startup-ecosystem",
+    title: "Startup Ecosystem",
+    subtitle: "Founder, Builder, Hackathon Participant",
+    summary:
+      "Active participation in Cyber Valley AI Incubator, UnternehmerTUM Startup Launchpad, hackathons, makeathons, and AI builder programmes.",
+    organization: "Various",
+    role: "Founder / Builder",
+    track: "entrepreneurship",
+    featured: true,
+    verificationStatus: "user-provided",
+    visibility: "public",
+    tags: ["Startup", "Hackathons", "AI Incubator", "Venture Building"],
+  },
+];

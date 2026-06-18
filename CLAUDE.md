@@ -1542,3 +1542,193 @@ Append new log entries below this line.
 ### Notes / next steps
 
 * Next step is to initialise the Next.js project and build the homepage foundation.
+
+---
+
+## 2026-06-19 — Agent 1: Foundation & Orchestration Complete
+
+**Type:** setup
+**Status:** done
+
+### What changed
+
+- Created Next.js 16 project with TypeScript, ESLint, src/ dir, App Router in worktree
+- Installed Tailwind CSS v3.4.19 (Tailwind v4 auto-installed by scaffold was removed and replaced)
+- Fixed `postcss.config.mjs` to use `tailwindcss` + `autoprefixer` (not `@tailwindcss/postcss`)
+- Created `tailwind.config.ts` with all design tokens as named Tailwind classes, font families, glow-pulse/float/fade-up keyframes
+- Created `src/app/globals.css` with CSS custom properties, smooth scroll, custom scrollbar, prefers-reduced-motion rule
+- Created `src/app/layout.tsx` with Inter, Space Grotesk, JetBrains Mono fonts via next/font/google
+- Created `src/lib/types.ts` with all shared TypeScript types (VerificationStatus, Visibility, ContentItem, ProjectItem, VentureItem, ResearchItem, ExperienceItem, CredentialItem, CapabilitySkill, CapabilityCategory, ContactPath, Post, ArchitectureNode, NavLink, SiteConfig)
+- Created `src/lib/utils.ts` with cn() and formatDate()
+- Created `src/lib/constants.ts` with NAV_LINKS (7 items), SOCIAL_LINKS, SITE_CONFIG, SECTION_ANCHORS
+- Created all 11 content files in `src/content/`
+- Created all 9 UI primitives in `src/components/ui/`
+- Created layout components (SectionWrapper, SectionHeading, Container, Grid)
+- Created motion components (AnimatedGridBackground, ScrollReveal, MagneticButton) with useReducedMotion() guards
+- Created 16 empty section stubs in `src/components/sections/`
+- Created `src/components/CommandPalette.tsx` stub
+- Created `src/app/page.tsx` (FROZEN) importing all 16 sections
+- `tsc --noEmit` passes with zero errors
+
+### Files changed
+
+- `package.json`, `next.config.ts`, `tsconfig.json`, `postcss.config.mjs`, `tailwind.config.ts`
+- `src/app/globals.css`, `src/app/layout.tsx`, `src/app/page.tsx`
+- `src/lib/types.ts`, `src/lib/utils.ts`, `src/lib/constants.ts`
+- `src/content/profile.ts`, `ventures.ts`, `projects.ts`, `research.ts`, `experience.ts`, `education.ts`, `credentials.ts`, `capabilities.ts`, `programs.ts`, `posts.ts`, `contactPaths.ts`
+- `src/components/ui/Badge.tsx`, `Button.tsx`, `Card.tsx`, `GlassCard.tsx`, `StatusPill.tsx`, `MetricCard.tsx`, `Tabs.tsx`, `FilterPills.tsx`, `SearchBar.tsx`
+- `src/components/layout/SectionWrapper.tsx`, `SectionHeading.tsx`, `Container.tsx`, `Grid.tsx`
+- `src/components/motion/AnimatedGridBackground.tsx`, `ScrollReveal.tsx`, `MagneticButton.tsx`
+- 16 section stubs + CommandPalette.tsx stub
+
+### Reason
+
+- Foundation required for parallel Agent 2 and Agent 3 builds.
+
+### Notes / next steps
+
+- **Decision: reactflow excluded** — no peer-dep issues but the plan instructed to implement a custom architecture explorer. Architecture explorer will be custom-built by Agent 2. Logged per PLAN.md instructions.
+- **ui-ux-pro-max recommendation noted:** Skill suggested Inter-only typography. Spec overrides with Space Grotesk (headings) + Inter (body) + JetBrains Mono — spec wins per PLAN.md rule. Skill design direction (Liquid Glass style, morphing elements, fluid animations) is consistent with the spec.
+- **ContentItem.summary made optional** — CredentialItem entries don't need a summary field per "only fields the UI renders" rule. This is a type-level fix, not a design decision.
+- Agents 2 and 3 can now run in parallel filling section bodies.
+
+---
+
+## 2026-06-19 — Agent 1: Build Gate Passed + Handoff Hardening
+
+**Type:** fix / decision
+**Status:** done
+
+### What changed
+
+- Added `.gitignore` to worktree (standard Next.js template) — scaffold created it in the main repo, not the worktree. Without it, `git add` would have staged all of `node_modules/` and `.next/`.
+- **Next.js version deviation logged:** `create-next-app` installed Next.js 16.2.9 (not 15 as specified in PLAN.md). This is the current stable version at build time. `next build` passes cleanly on 16.2.9 with React 19.2 — keeping 16, not downgrading. Framer Motion 11 required `--legacy-peer-deps` during install; no runtime impact.
+- Ran `next build` (Turbopack) — passed with zero errors. Route `/` prerendered as static. This is the real build gate before frozen files lock down.
+
+### Files changed
+
+- `.gitignore` (created)
+- `CLAUDE.md` (this log entry)
+
+### Reason
+
+- Advisor flagged: tsc alone is insufficient gate; `next build` exercises App Router, server/client boundaries, PostCSS/Tailwind resolution. All foundation files freeze after handoff — any build error must be fixed now by Agent 1.
+- `.gitignore` missing would corrupt any future `git add` with node_modules.
+- Next.js version deviation needed to be logged so Agents 2-4 know the baseline.
+
+### Notes / next steps
+
+- Foundation files are NOW frozen. Agents 2 and 3 may fill section stubs only.
+- Do not edit: `globals.css`, `tailwind.config.ts`, `layout.tsx`, all `src/lib/*`, all `src/content/*`, all `src/components/ui/*`, all `src/components/layout/*`, all `src/components/motion/*`, `page.tsx`.
+- Agent 2: build section bodies (Navbar, Hero, MissionControl, Cellvara, FeaturedSystems, VenturePortfolio, ArchitectureExplorer, ProofMetrics, Footer).
+- Agent 3: build section bodies (BraidedTimeline, Research, CapabilityMap, Credentials, Writing, About, Contact) + CommandPalette.
+
+---
+
+## 2026-06-19 — Agent 2: Sections 1–8 + Supporting Components Complete
+
+**Type:** feature
+**Status:** done
+
+### What changed
+
+- Built `NavbarSection.tsx`: fixed header, backdrop-blur, active section hook via IntersectionObserver, NAV_LINKS, utility icons (inline SVG for GitHub/LinkedIn — lucide-react in this install has no Github/Linkedin exports), MagneticButton CTA, ⌘K palette button dispatching `chirag-os:open-palette`, mobile hamburger with Framer Motion slide-down, responsive desktop/mobile split.
+- Built `HeroSection.tsx`: full-viewport, typewriter "SYSTEM ONLINE" label, gradient heading, pulsing status line from PROFILE.currentMission, 5-CTA row, badge row from PROFILE.badges, FloatingSystemCards right column (hidden on mobile).
+- Built `MissionControlSection.tsx`: 6-panel grid (cols-3/2/1) — Cellvara venture, engineering focus list, Hilti with StatusPill needs-review, HNU education with badges, PrepAI featured build with GitHub link, research question. All data from content files.
+- Built `CellvaraSection.tsx`: two-column problem/solution layout; 7 problem items with AlertCircle amber icons; 3 GlassCard pillars (list + badges variants); status badges from cellvara.tags with Lock icon on Private Repository; 3-CTA row.
+- Built `FeaturedSystemsSection.tsx`: FilterPills with "All" toggle logic + label→tag matching map; 4-col grid; staggered ScrollReveal.
+- Built `VenturePortfolioSection.tsx`: VENTURES.map → VentureCard stacked vertically.
+- Built `ArchitectureExplorerSection.tsx`: 4-tab system selector (PrepAI/MedAssist MAS/Vidintel/DocChat); ArchitectureExplorer renders nodes from project.architectureNodes.
+- Built `ProofMetricsSection.tsx`: 6 DEFENSIBLE_METRICS as GlassCard+MetricCard grid; Bosch items in separate GlassCard with StatusPill needs-review.
+- Built `FeaturedSystemCard.tsx`: title, GitHub link, summary, tags (mono badges), bestAngle, disclaimer amber pill, needs-review StatusPill.
+- Built `ProjectCard.tsx`: compact card for project explorer use.
+- Built `VentureCard.tsx`: horizontal card with colored accent bar (venture/warning/danger per venture.id), stage badge, focus tags, CTA.
+- Built `ArchitectureNode.tsx`: button node with index label, hover scale, active engineering glow.
+- Built `ArchitectureExplorer.tsx`: vertical node list with SVG arrow connectors; AnimatePresence slide-in detail panel; sticky detail panel on desktop.
+- Built `FloatingSystemCards.tsx`: 7 floating GlassCards with staggered entrance + continuous y-keyframe float, useReducedMotion guard.
+- Built `CommandPalette.tsx`: full implementation replacing stub — window event + Cmd/Ctrl+K open, Escape/outside close, auto-focused search, arrow+Enter keyboard nav, 10 commands in Navigate/Actions groups, scale+spring entrance.
+
+### Files changed (created/replaced)
+
+- `src/components/sections/NavbarSection.tsx`
+- `src/components/sections/HeroSection.tsx`
+- `src/components/sections/MissionControlSection.tsx`
+- `src/components/sections/CellvaraSection.tsx`
+- `src/components/sections/FeaturedSystemsSection.tsx`
+- `src/components/sections/VenturePortfolioSection.tsx`
+- `src/components/sections/ArchitectureExplorerSection.tsx`
+- `src/components/sections/ProofMetricsSection.tsx`
+- `src/components/cards/FeaturedSystemCard.tsx`
+- `src/components/cards/ProjectCard.tsx`
+- `src/components/cards/VentureCard.tsx`
+- `src/components/architecture/ArchitectureExplorer.tsx`
+- `src/components/architecture/ArchitectureNode.tsx`
+- `src/components/motion/FloatingSystemCards.tsx`
+- `src/components/CommandPalette.tsx`
+
+### Reason
+
+- Agent 2 responsibility per PLAN.md — sections 1–8, cards, architecture components, FloatingSystemCards, CommandPalette.
+
+### Notes / next steps
+
+- **Decision: lucide-react has no Github/Linkedin exports in this install.** Used inline SVG paths (official GitHub/LinkedIn brand SVGs) instead. Agent 4 should verify icon rendering visually.
+- `tsc --noEmit` passes with zero errors after all files built.
+- No frozen files were modified.
+- Agent 3 can now fill remaining section stubs in parallel.
+- Agent 4: run `next build` gate, then Playwright visual check.
+- Frozen files: page.tsx, layout.tsx, globals.css, tailwind.config.ts, all types/utils/constants, all content files, all UI primitives, all layout components, all motion components.
+
+---
+
+## 2026-06-19 — Agent 3: Sections 9–16 + Supporting Components Complete
+
+**Type:** feature
+**Status:** done
+
+### What changed
+
+- Built `ExperienceTimelineItem.tsx`: expandable GlassCard node with track badge variant mapping, needs-review StatusPill, formatted dates.
+- Built `BraidedTimeline.tsx`: 4-column CSS Grid with vertical connector lines, colored dot nodes, staggered ScrollReveal, cross-track braid visual marker (dual-ring dot + "SPANS ENGINEERING + RESEARCH" label) for items with `relatedProjects`.
+- Built `BraidedTimelineSection.tsx`: includes synthetic `BOSCH_THESIS_RESEARCH` ExperienceItem (research track, mirrors bosch-ebike engineering node) and `CELLVARA_VENTURE` (entrepreneurship track) to implement the braided timeline as specified.
+- Built `ResearchCard.tsx`: icon map as `Record<string, React.ComponentType<...>>` (avoids TS7053), patent number display, needs-review StatusPill.
+- Built `ResearchSection.tsx`: Grid of ResearchCard + RESEARCH_INTERESTS badge row.
+- Built `CapabilityCard.tsx`: skill name in mono, evidence badges with tooltip, projectMap prop.
+- Built `CapabilityMapSection.tsx`: Radix Tabs with per-category accentColor border on active trigger via `data-[state=active]:border-b-2 data-[state=active]:border-${cat.accentColor}`, projectMap at module level.
+- Built `CredentialCard.tsx`: issuer in mono, category Badge, verify link only when not needs-review.
+- Built `CredentialsSection.tsx`: Fuse.js search (keys: title/issuer/category, threshold 0.35), useMemo filter, show-all toggle, 3-col grid.
+- Built `WritingSection.tsx`: featured posts filter, needs-review link handling, StatusPill.
+- Built `AboutSection.tsx`: two-column layout, GeometricAvatar SVG with useReducedMotion guards, 2×2 interests grid.
+- Built `ContactPathCard.tsx`: ICON_MAP and GLOW_MAP and ICON_COLOR_MAP as static Records (no dynamic Tailwind class strings), MagneticButton wrapping Button.
+- Built `ContactSection.tsx`: 3+2 grid layout, email line.
+- Built `FooterSection.tsx`: 3-col grid, cellvara GlassCard, inline SVG avoided — uses Code2/ExternalLink (lucide-react has no brand icons), copyright line.
+
+### Files changed
+
+- `src/components/timeline/ExperienceTimelineItem.tsx` (created)
+- `src/components/timeline/BraidedTimeline.tsx` (created)
+- `src/components/sections/BraidedTimelineSection.tsx` (filled)
+- `src/components/cards/ResearchCard.tsx` (created)
+- `src/components/sections/ResearchSection.tsx` (filled)
+- `src/components/cards/CapabilityCard.tsx` (created)
+- `src/components/sections/CapabilityMapSection.tsx` (filled)
+- `src/components/cards/CredentialCard.tsx` (created)
+- `src/components/sections/CredentialsSection.tsx` (filled)
+- `src/components/sections/WritingSection.tsx` (filled)
+- `src/components/sections/AboutSection.tsx` (filled)
+- `src/components/cards/ContactPathCard.tsx` (created)
+- `src/components/sections/ContactSection.tsx` (filled)
+- `src/components/sections/FooterSection.tsx` (filled)
+
+### Reason
+
+- Agent 3 responsibility per PLAN.md — sections 9–16, timeline, research, capability, credentials, writing, about, contact, footer.
+
+### Notes / next steps
+
+- `tsc --noEmit` passes with zero errors across all Agent 3 files.
+- **NavbarSection.tsx (Agent 2)**: Uses inline SVG for GitHub/LinkedIn brand icons — no TSC errors. This is correct and intentional per Agent 2 notes.
+- **Bosch dual-track braid**: Implemented via synthetic `BOSCH_THESIS_RESEARCH` ExperienceItem (research track) in BraidedTimelineSection and visual dual-ring dot marker in BraidedTimeline for items with `relatedProjects`. This is the primary "braid" the spec describes.
+- **CapabilityMap accentColor**: Active tab trigger now gets `data-[state=active]:border-b-2` with per-category accent border.
+- **ContactPathCard icon color**: Uses static `ICON_COLOR_MAP` (not dynamic `text-${accentColor}`) so Tailwind JIT can purge safely.
+- Agent 4: run `next build`, then visual check. All frozen files untouched.

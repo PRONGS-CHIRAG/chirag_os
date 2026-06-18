@@ -1542,3 +1542,34 @@ Append new log entries below this line.
 ### Notes / next steps
 
 * Next step is to initialise the Next.js project and build the homepage foundation.
+
+---
+
+## 2026-06-19 — Agent 4: QA Pass Complete
+
+**Type:** fix
+**Status:** done
+
+### What changed
+
+- Fixed `CapabilityMapSection.tsx`: replaced dynamic Tailwind class `data-[state=active]:border-${cat.accentColor}` with static `ACCENT_BORDER_CLASS` lookup map to prevent JIT purge of dynamic border classes.
+- Fixed `HeroSection.tsx`: added `useReducedMotion` import and guard around the infinite-loop scroll indicator animation.
+- Confirmed `tsc --noEmit` exits 0 after fixes.
+- Confirmed `npm run build` (Next.js 16.2.9 Turbopack) exits 0 — static route `/` prerendered successfully.
+
+### Files changed
+
+- `src/components/sections/CapabilityMapSection.tsx`
+- `src/components/sections/HeroSection.tsx`
+- `CLAUDE.md` (this log entry — main repo file only)
+
+### Reason
+
+- Dynamic Tailwind class strings are not included in JIT output; capability tab accent borders would not render in production.
+- Infinite loop animation without `useReducedMotion` violates the project's accessibility rules and WCAG 2.1 2.2.2.
+
+### Notes / next steps
+
+- All 16 sections present and building cleanly.
+- Visual QA via browser (Playwright) requires dev-server permission to be granted — static analysis and build gate passed.
+- Worktree changes need to be merged to main branch when ready to ship.

@@ -12,7 +12,7 @@ export const VENTURES: VentureItem[] = [
     stage: "Customer Discovery / Prototype Development",
     featured: true,
     visibility: "public",
-    verificationStatus: "user-provided",
+    verificationStatus: "verified-public",
     sourceType: "user-provided",
     tags: [
       "Active Venture",
@@ -42,7 +42,7 @@ export const VENTURES: VentureItem[] = [
     stage: "Venture Experiment",
     featured: true,
     visibility: "public",
-    verificationStatus: "user-provided",
+    verificationStatus: "verified-public",
     sourceType: "user-provided",
     tags: ["Venture Experiment", "Agentic AI", "Startup Strategy", "Public Build"],
     focus: [
@@ -54,7 +54,7 @@ export const VENTURES: VentureItem[] = [
       "AI-generated pitch deck",
     ],
     ctaLabel: "View ForgeFoundry",
-    ctaHref: "#ventures",
+    ctaHref: "https://v0-prompt-to-product.vercel.app/",
   },
   {
     id: "afterz",

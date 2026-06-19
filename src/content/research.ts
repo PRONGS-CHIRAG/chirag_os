@@ -3,25 +3,25 @@ import type { ResearchItem } from "@/lib/types";
 export const RESEARCH_ITEMS: ResearchItem[] = [
   {
     id: "bosch-thesis",
-    title: "Predicting Perceived E-Bike Motor Loudness",
+    title: "Predicting Perceived E-Bike Motor Loudness and Sound Quality ratings using Vibration Data with Explainable Artificial Intelligence",
     subtitle: "Master's Thesis — Bosch eBike Systems",
     summary:
-      "Predicting perceived e-bike motor loudness using vibration and acoustic data with explainable machine learning techniques.",
+      "Predicting perceived e-bike motor loudness and sound quality ratings using vibration data with explainable artificial intelligence techniques.",
     description:
-      "Industrial ML thesis applying explainable boosting machines and interpretability methods to acoustic and vibration sensor data from e-bike motors. Included large-scale ETL pipeline development and model evaluation.",
+      "Industrial ML thesis applying explainable boosting machines and interpretability methods to vibration sensor data from e-bike motors. Included large-scale ETL pipeline development and model evaluation.",
     researchType: "thesis",
     featured: true,
-    verificationStatus: "needs-review",
-    tags: ["Explainable ML", "Applied ML", "Signal Processing", "Industrial AI", "EBM"],
+    verificationStatus: "verified-public",
+    tags: ["Explainable AI", "Applied ML", "Signal Processing", "Industrial AI", "EBM"],
   },
   {
     id: "signal-processing",
     title: "Wavelet Signal Compression Research",
     subtitle: "Research Assistant — FORWISS, University of Passau",
     summary:
-      "Signal-processing research on compression of wavelet-based sensor data using NetCDF and HDF5 formats.",
+      "Signal-processing research on compression of wavelet-based sensor data using NetCDF and HDF5 formats and JPEG compression techniques.",
     description:
-      "Contributed to research software and publication in wavelet-based data compression for scientific sensor streams, working with NetCDF and HDF5 data formats.",
+      "Contributed to research software and publication in wavelet-based data compression for scientific sensor streams, working with NetCDF and HDF5 data formats and JPEG compression techniques.",
     researchType: "signal-processing",
     featured: true,
     verificationStatus: "needs-review",
@@ -45,14 +45,14 @@ export const RESEARCH_ITEMS: ResearchItem[] = [
     title: "A Flying Object for Dispensing Chemical Composition and Method Thereof",
     subtitle: "Patent",
     summary:
-      "Patent for an autonomous drone system designed for precision dispensing of chemical compositions in agricultural and related applications.",
+      "Patent for an autonomous drone system designed for precision dispensing of pesticides in farms using computer vision algorithms.",
     description:
       "Inventive concept covering a drone-based chemical dispensing mechanism with controlled release and flight path automation for agricultural use cases.",
     researchType: "patent",
-    patentNumber: "needs-review",
+    patentNumber: "201941047691",
     featured: true,
-    verificationStatus: "needs-review",
-    tags: ["Patent", "Drone", "Agriculture", "Automation"],
+    verificationStatus: "verified-public",
+    tags: ["Patent", "Drone", "Agriculture", "Automation"," Computer Vision"],
   },
 ];
 
@@ -63,6 +63,5 @@ export const RESEARCH_INTERESTS = [
   "Human-AI collaboration",
   "AI for regulated environments",
   "AI governance and enablement",
-  "Responsible AI adoption",
-  "Applied multimodal systems",
+  "Safe and Responsible AI",
 ];

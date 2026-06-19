@@ -67,11 +67,11 @@ export const VENTURES: VentureItem[] = [
     stage: "Paused",
     featured: false,
     visibility: "public",
-    verificationStatus: "needs-review",
+    verificationStatus: "verified-public",
     sourceType: "user-provided",
     tags: ["Prototype", "Paused", "Archived Experiment"],
     focus: ["Event discovery", "Social coordination", "Safety and inclusion"],
     ctaLabel: "View Details",
-    ctaHref: "#ventures",
+    ctaHref: "https://now-or-never-crew.lovable.app/",
   },
 ];

@@ -149,23 +149,23 @@ export const CAPABILITY_CATEGORIES: CapabilityCategory[] = [
     skills: [
       {
         name: "Customer Discovery",
-        evidence: [{ projectId: "cellvara", label: "Cellvara" }],
+        evidence: [{ projectId: "cellvara", label: "Cellvara" },{ projectId:"afterz", label: "Afterz" }],
       },
       {
         name: "Value Propositions & Business Models",
-        evidence: [{ projectId: "forgefoundry", label: "ForgeFoundry" }],
+        evidence: [{ projectId: "forgefoundry", label: "ForgeFoundry" }, { projectId: "cellvara", label: "Cellvara" }],
       },
       {
         name: "GTM Strategy",
-        evidence: [{ projectId: "forgefoundry", label: "ForgeFoundry" }],
+        evidence: [{ projectId: "forgefoundry", label: "ForgeFoundry" }, { projectId: "cellvara", label: "Cellvara" }],
       },
       {
         name: "Rapid Prototyping",
-        evidence: [{ projectId: "afterz", label: "Afterz" }],
+        evidence: [{ projectId: "afterz", label: "Afterz" },  {projectId: "cellvara", label: "Cellvara" }],
       },
       {
         name: "Pitch Development",
-        evidence: [{ projectId: "forgefoundry", label: "ForgeFoundry" }],
+        evidence: [{ projectId: "forgefoundry", label: "ForgeFoundry" }, { projectId: "cellvara", label: "Cellvara" }],
       },
     ],
   },

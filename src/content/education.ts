@@ -6,7 +6,7 @@ export const EDUCATION: ExperienceItem[] = [
     title: "PES University",
     subtitle: "B.Tech. Computer Science and Engineering",
     summary:
-      "Graduated with distinction. Technical foundations, entrepreneurship courses, and early engineering projects.",
+      "Graduated with distinction. Computer Science and Machine Learning foundations, entrepreneurship courses, and software engineering projects.",
     organization: "PES University",
     track: "education",
     featured: true,
@@ -19,7 +19,7 @@ export const EDUCATION: ExperienceItem[] = [
     title: "University of Passau",
     subtitle: "M.Sc. Computer Science — AI Specialisation",
     summary:
-      "Machine learning, deep learning, explainability, and applied thesis work. Graduated with strong academic standing.",
+      "Machine learning, deep learning, NLP, Explainable AI and Industrial AI thesis work. Graduated with distinction.",
     organization: "University of Passau",
     track: "education",
     featured: true,

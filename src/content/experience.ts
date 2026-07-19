@@ -6,9 +6,9 @@ export const EXPERIENCE: ExperienceItem[] = [
     title: "Hilti",
     subtitle: "Working Student AI",
     summary:
-      "Working on AI-related initiatives in an industrial context, combining applied AI, data, workflow thinking, and practical business use cases.",
+      "Working on Agentic AI-related initiatives in an industrial context, combining agentic AI, data, workflow thinking,embedded systems knowledge and practical business use cases.",
     organization: "Hilti",
-    role: "Working Student AI",
+    role: "Working Student Agentic AI Engineer",
     track: "engineering",
     startDate: "May 2026",
     endDate: "present",
@@ -20,11 +20,11 @@ export const EXPERIENCE: ExperienceItem[] = [
   {
     id: "bosch-ebike",
     title: "Bosch eBike Systems",
-    subtitle: "Applied ML and Data Science",
+    subtitle: "Applied Machine Learning and Data Science",
     summary:
-      "Applied ML and data science work covering master's thesis, acoustic and vibration data analysis, explainable machine learning, and industrial-scale data pipeline development.",
+      "Applied Machine Learning and data science work covering master's thesis, acoustic and vibration data analysis, explainable machine learning, developing custom tools for NVH engineers  and industrial-scale data pipeline development.",
     organization: "Bosch eBike Systems",
-    role: "needs-review",
+    role: "Data Scientist",
     track: "engineering",
     startDate: "June 2023",
     endDate: "March 2025",
@@ -35,7 +35,7 @@ export const EXPERIENCE: ExperienceItem[] = [
   },
   {
     id: "forwiss",
-    title: "FORWISS — University of Passau",
+    title: "FORWISS - University of Passau",
     subtitle: "Research Assistant",
     summary:
       "Signal and data-processing research covering NetCDF and HDF5 formats, compression of wavelet-based signals, research software development, and publication contribution.",

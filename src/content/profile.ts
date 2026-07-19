@@ -8,7 +8,7 @@ export const PROFILE = {
   heroDescription:
     "AI engineer, researcher, and entrepreneur working across agentic AI, RAG, applied machine learning, explainable systems, multimodal AI, and AI-native product development.",
   currentMission:
-    "CURRENTLY BUILDING: Cellvara — responsible AI adoption infrastructure for pharma and biotech teams.",
+    "CURRENTLY BUILDING: Cellvara - responsible AI adoption and governance infrastructure for pharma and biotech teams.",
   badges: [
     "Agentic AI",
     "RAG",

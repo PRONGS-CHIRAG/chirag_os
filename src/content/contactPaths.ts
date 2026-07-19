@@ -19,7 +19,7 @@ export const CONTACT_PATHS: ContactPath[] = [
       "Pharma or biotech team thinking about AI adoption? Let's discuss a pilot or proof of concept.",
     audiences: ["Pharma SMEs", "Biotech SMEs", "R&D teams", "Regulatory teams", "AI adoption leads"],
     ctaLabel: "Discuss Cellvara",
-    ctaHref: "mailto:chiragatgermany@gmail.com?subject=Cellvara Discussion",
+    ctaHref: "mailto:chirag@cellvara.de?subject=Cellvara Discussion",
     accentColor: "accent-venture",
     icon: "FlaskConical",
   },

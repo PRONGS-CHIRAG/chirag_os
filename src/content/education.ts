@@ -12,7 +12,7 @@ export const EDUCATION: ExperienceItem[] = [
     featured: true,
     verificationStatus: "verified-public",
     visibility: "public",
-    tags: ["Computer Science", "Engineering", "Entrepreneurship"],
+    tags: ["Computer Science", "Engineering", "Entrepreneurship","Machine Learning","Data Structures and Algorithms"],
   },
   {
     id: "university-passau",
@@ -25,7 +25,7 @@ export const EDUCATION: ExperienceItem[] = [
     featured: true,
     verificationStatus: "verified-public",
     visibility: "public",
-    tags: ["Computer Science", "AI", "Machine Learning", "Deep Learning", "Explainability"],
+    tags: ["Computer Science", "AI", "Machine Learning", "Deep Learning", "Explainable AI"],
   },
   {
     id: "hnu",

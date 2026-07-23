@@ -4,7 +4,7 @@ export const EXPERIENCE: ExperienceItem[] = [
   {
     id: "hilti",
     title: "Hilti",
-    subtitle: "Working Student AI",
+    subtitle: "Working Student Agentic AI",
     summary:
       "Working on Agentic AI-related initiatives in an industrial context, combining agentic AI, data, workflow thinking,embedded systems knowledge and practical business use cases.",
     organization: "Hilti",
@@ -62,5 +62,19 @@ export const EXPERIENCE: ExperienceItem[] = [
     verificationStatus: "verified-public",
     visibility: "public",
     tags: ["Startup", "AI Incubator", "Venture Building"],
+  },
+  {
+    id: "snowball-effect",
+    title: "Strategy Consultant – Impact Measurement & Scaling",
+    subtitle: "Co-op / Project-based",
+    summary:
+      "Led a three-person consulting project for Snowball Effect, working with two teammates to improve the organization's impact measurement, KPI, and scaling strategy frameworks, including analysis of survey data, KPI structures, impact reports, and internal assessment processes, and developing recommendations for a clearer theory of change and a more transparent assessment framework for new and existing solutions.",
+    organization: "Snowball Effect",
+    role: "Strategy Consultant",
+    track: "entrepreneurship",
+    featured: true,
+    verificationStatus: "verified-public",
+    visibility: "public",
+    tags: ["Leadership", "Strategy Consulting", "Impact Measurement", "KPI Development", "Theory of Change", "Social Innovation"],
   },
 ];

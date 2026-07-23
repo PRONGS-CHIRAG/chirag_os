@@ -24,7 +24,7 @@ export const RESEARCH_ITEMS: ResearchItem[] = [
       "Contributed to research software and publication in wavelet-based data compression for scientific sensor streams, working with NetCDF and HDF5 data formats and JPEG compression techniques.",
     researchType: "signal-processing",
     featured: true,
-    verificationStatus: "needs-review",
+    verificationStatus: "verified-public",
     tags: ["Signal Processing", "Wavelets", "NetCDF", "HDF5", "Data Compression"],
   },
   {
@@ -37,7 +37,7 @@ export const RESEARCH_ITEMS: ResearchItem[] = [
       "Explored sensor networks, data communication protocols, and embedded systems for smart infrastructure and connected living space applications. Led to publication contribution.",
     researchType: "iot",
     featured: true,
-    verificationStatus: "user-provided",
+    verificationStatus: "verified-public",
     tags: ["IoT", "Smart Infrastructure", "Embedded Systems", "Sensors"],
   },
   {
